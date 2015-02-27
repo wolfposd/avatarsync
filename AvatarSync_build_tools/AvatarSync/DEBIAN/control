@@ -1,0 +1,8 @@
+Package: de.posdorfer.AvatarSync
+Name: AvatarSync
+Version: 0.9.15
+Architecture: iphoneos-arm
+Description: App for applying profile pictures from various sources
+Maintainer: mordredd666@gmail.com
+Author: Mordred
+Section: Application
