@@ -1,0 +1,111 @@
+//
+//  Localizable.strings
+//  AvatarSync
+//
+//  Created by Wolf Posdorfer on 23.11.14.
+//  Copyright (c) 2014 Wolf Posdorfer. All rights reserved.
+//
+
+// Contacts Table View
+"Select a Contact and Sync away!" = "Select a Contact and Sync away!";
+"AvatarSync needs access to the Addressbook" = "AvatarSync needs access to the Addressbook";
+
+
+// ImageUrl
+"Enter a URL:" = "Enter a URL:";
+"Image download" = "Image download";
+"Please enter a URL first." = "Please enter a URL first.";
+
+// TwitterDownload
+
+"Enter Twitter Name:" = "Enter Twitter Userame:";
+"Please enter a Twitter-Username first." = "Please enter a Twitter-Username first.";
+
+// FacebookDownload
+
+"Enter Facebook Name:" = "Enter Facebook Username:";
+"Please enter a Facebook-Username first." = "Please enter a Facebook-Username first.";
+
+// SingleDownloadViewController
+"Download" = "Download";
+"Apply" = "Apply";
+
+
+
+// ImageApplyOptions
+"Select an imagesource for\n%@ %@" = "Select an imagesource for\n%@ %@";
+"Source Selection" = "Source Selection";
+"Pick a Source" = "Pick a Source";
+"Automatic" = "Automatic";
+"Semi-Automatic" = "Semi-Automatic";
+
+"WhatsApp\n(from local storage)" = "WhatsApp\n(from local storage)";
+
+
+// Images Generic
+
+"Images" = "Images";
+"Select an image from the following" = "Select an image from the following";
+
+
+// Gravatar
+"Contact does not have eMail Addresses" = "Contact does not have eMail Addresses";
+"No images found for this User." = "No images found for this User.";
+"Select images from Gravatar" = "Select images from Gravatar";
+"Select images from Gravatar\n\n Loading...." = "Select images from Gravatar\n\n Loading....";
+
+// Whatsapp
+"No Image found" = "No Image found";
+"Possible Matches" = "Possible Matches";
+"Other Profileimages" = "Other Profileimages";
+"No HD Image Found" = "No HD Image Found";
+"HD Profile Images" = "HD Profile Images";
+"Cached Profile Images" = "Cached Profile Images";
+"Profile Picture from WA-DB" = "Profile Picture from WA-DB";
+"WA Images" = "WA Images";
+"WhatsApp Profiles" = "WhatsApp Profiles";
+"Select a profile picture from WhatsApp" = "Select a profile picture from WhatsApp";
+"WhatsApp is not installed" = "WhatsApp is not installed";
+"Thumbnail" = "Thumbnail";
+"WhatsApp Thumbnails" = "WhatsApp Thumbnails";
+"Include thumbnails in multiple?" = "Include thumbnails in multiple?";
+
+// Facebook
+"Currently loading picture" = "Currently loading picture";
+"Picture from Facebook Graph" = "Picture from Facebook Graph";
+"No picture found :-(" = "No picture found :-(";
+"requires webconnection" = "requires webconnection";
+"Messenger is not installed" = "Facebook or Messenger are not installed";
+
+// Multiple
+"Select sources to look for images\n\nAfterwards select images to apply" = "Select sources to look for images\n\nAfterwards select images to apply";
+"Start matching" = "Start matching";
+"No Matching entries found" = "No Matching entries found";
+
+"Match Results" = "Match Results";
+"Swipe left to remove images you don't want to apply" = "Swipe left to remove images you don't want to apply";
+"Apply All" = "Apply All";
+"%@ still has more than one image, please remove one before proceeding" = "%@ still has more than one image, please remove one before proceeding";
+
+// Settings
+"Nothing to configure... yet" = "Nothing to configure... yet";
+"Configure your stuff" = "Configure your stuff, if you dare.";
+
+// Global
+"Single" = "Single";
+"Multiple" = "Multiple";
+"Settings" = "Settings";
+
+"Yes" = "Yes";
+"No" = "No";
+
+"Error" = "Error";
+"What now?!" = "What now?!";
+"Gotcha!" = "Gotcha!";
+"Apply Image" = "Apply Image";
+
+"Successfully Downloaded" = "Successfully Downloaded";
+
+"Are you sure you want to apply this image to user?"  = "Are you sure you want to use this image?" ;
+"Please download an image before applying it!" = "Please download an image before applying it!";
+

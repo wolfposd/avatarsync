@@ -1,0 +1,112 @@
+//
+//  Localizable.strings
+//  AvatarSync
+//
+//  Created by Wolf Posdorfer on 23.11.14.
+//  Copyright (c) 2014 Wolf Posdorfer. All rights reserved.
+//
+
+// Contacts Table View
+"Select a Contact and Sync away!" = "Kontakt auswählen und Synchronisieren";
+"AvatarSync needs access to the Addressbook" = "AvatarSync braucht Zugriff aufs Adressbuch";
+
+
+// ImageUrl
+"Enter a URL:" = "Gib eine URL ein:";
+"Image download" = "Bilder-Download";
+"Please enter a URL first." = "Bitte gib zuerst eine URL ein.";
+
+// TwitterDownload
+
+"Enter Twitter Name:" = "Twitter Nutzername:";
+"Please enter a Twitter-Username first." = "Bitte gib zuerst einen Twitter-Nutzernamen ein.";
+
+// FacebookDownload
+
+"Enter Facebook Name:" = "Facebook Nutzername:";
+"Please enter a Facebook-Username first." = "Bitte gib zuerst einen Facebook-Nutzernamen ein.";
+
+
+// SingleDownloadViewController
+"Download" = "Download";
+"Apply" = "Übernehmen";
+
+
+
+// ImageApplyOptions
+"Select an imagesource for\n%@ %@" = "Wähle eine Bildquelle aus für\n%@ %@";
+"Source Selection" = "Quellen-Wahl";
+"Pick a Source" = "Wähle eine Quelle aus";
+"Automatic" = "Automatisch";
+"Semi-Automatic" = "Semi-Automatisch";
+
+"WhatsApp\n(from local storage)" = "WhatsApp\n(vom Telefonspeicher)";
+
+
+// Images Generic
+
+"Images" = "Bilder";
+"Select an image from the following" = "Wähle ein Bild von den folgenden aus";
+
+
+// Gravatar
+"Contact does not have eMail Addresses" = "Kontakt hat keine eMail-Adresse";
+"No images found for this User." = "Keine Bilder für diesen Kontakt gefunden";
+"Select images from Gravatar" = "Wähle ein Bild von Gravatar aus";
+"Select images from Gravatar\n\n Loading...." = "Wähle ein Bild von Gravatar aus\n\n Lädt....";
+
+// Whatsapp
+"No Image found" = "Kein Bild gefunden";
+"Possible Matches" = "Mögliche Treffer";
+"Other Profileimages" = "Andere Profilbilder";
+"No HD Image Found" = "Kein HD-Bild gefunden";
+"HD Profile Images" = "HD Profilbilder";
+"Cached Profile Images" = "SD Profilbilder";
+"Profile Picture from WA-DB" = "Profilbild aus der WA-Datenbank";
+"WA Images" = "WA Bilder";
+"WhatsApp Profiles" = "WhatsApp Profilbilder";
+"Select a profile picture from WhatsApp" = "Wähle ein Profilbild von WhatsApp aus";
+"WhatsApp is not installed" = "WhatsApp ist nicht installiert";
+"Thumbnail" = "Miniaturansicht";
+"WhatsApp Thumbnails" = "WhatsApp Miniaturansichten";
+"Include thumbnails in multiple?" = "Miniaturansichten im Mehrfachmodus?";
+
+// Facebook
+"Currently loading picture" = "Bild wird geladen";
+"Picture from Facebook Graph" = "Bild vom Facebook Graph";
+"No picture found :-(" = "Kein Bild gefunden :-(";
+"requires webconnection" = "benötigt Internetverbindung";
+"Messenger is not installed" = "Facebook oder Messenger sind nicht installiert";
+
+// Multiple
+"Select sources to look for images\n\nAfterwards select images to apply" = "Wähle Quellen aus um nach Bildern zu suchen\n\nDanach Bilder auswählen zum anwenden";
+"Start matching" = "Anfangen zu Suchen";
+"No Matching entries found" = "Keine passenden Bilder gefunden";
+
+"Match Results" = "Suchergebnisse";
+"Swipe left to remove images you don't want to apply" = "Wische nach Links um Bilder zu entfernen die nicht angewendet werden sollen";
+"Apply All" = "Alle Anwenden";
+"%@ still has more than one image, please remove one before proceeding" = "%@ hat mehr als ein Bild. Dieses muss entfernt werden bevor es losgehen kann.";
+
+// Settings
+"Nothing to configure... yet" = "Nichts zum Einstellen... bisher";
+"Configure your stuff" = "Stell ein, was du nicht lassen kannst.";
+
+// Global
+"Single" = "Einzel";
+"Multiple" = "Mehrfach";
+"Settings" = "Einstellungen";
+
+"Yes" = "Ja";
+"No" = "Nein";
+
+"Error" = "Fehler";
+"What now?!" = "Bitte was?!";
+"Gotcha!" = "Verstanden!";
+"Apply Image" = "Bild übernehmen";
+
+"Successfully Downloaded" = "Erfolgreicher Download";
+
+"Are you sure you want to apply this image to user?"  = "Bist du sicher, dass du dieses Bild benutzen möchtest?" ;
+"Please download an image before applying it!" = "Du musst ein Bild herunterladen bevor du es übernehmen kannst!";
+
