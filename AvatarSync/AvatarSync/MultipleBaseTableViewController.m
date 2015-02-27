@@ -18,7 +18,6 @@
 //
 
 #import "MultipleBaseTableViewController.h"
-#import "WhatsAppMultipleMatcher.h"
 #import "SelectionCell.h"
 #import "BorderButton.h"
 #import "AddressbookManager.h"
@@ -26,11 +25,12 @@
 
 #import "FileLog.h"
 
+// import Matchers
 #import "FacebookMultipleMatcher.h"
 #import "FacebookMessengerMultipleMatcher.h"
 #import "GravatarMultipleMatcher.h"
 #import "DickButtMultipleMatcher.h"
-
+#import "WhatsAppMultipleMatcher.h"
 
 @interface MultipleBaseTableViewController ()<SelectionToggled, AddressbookManagerDelegate>
 
