@@ -11,9 +11,6 @@
 		79229F1C1A2DD9A700902ECB /* FileLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 79229F1A1A2DD9A700902ECB /* FileLog.m */; };
 		792F58681A3F221B0059153D /* NSString+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 792F58671A3F221B0059153D /* NSString+Base64.m */; };
 		795B2D491A34B6270050A82B /* AbstractAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 795B2D481A34B6270050A82B /* AbstractAction.m */; };
-		795B2D4C1A34B6B30050A82B /* FacebookSettingsAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 795B2D4B1A34B6B30050A82B /* FacebookSettingsAction.m */; };
-		795B2D511A34B6F20050A82B /* FacebookLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 795B2D4F1A34B6F20050A82B /* FacebookLoginViewController.m */; };
-		795B2D521A34B6F20050A82B /* FacebookLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 795B2D501A34B6F20050A82B /* FacebookLoginViewController.xib */; };
 		7968B4A11A260D4200CCC1BA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7968B49F1A260D4200CCC1BA /* Localizable.strings */; };
 		7968B4AC1A260FFE00CCC1BA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79DAB5B31A215712003C71C1 /* Main.storyboard */; };
 		7968B4AD1A260FFE00CCC1BA /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79DAB5B81A215712003C71C1 /* LaunchScreen.xib */; };
@@ -103,11 +100,6 @@
 		792F58671A3F221B0059153D /* NSString+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Base64.m"; sourceTree = "<group>"; };
 		795B2D471A34B6270050A82B /* AbstractAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbstractAction.h; sourceTree = "<group>"; };
 		795B2D481A34B6270050A82B /* AbstractAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AbstractAction.m; sourceTree = "<group>"; };
-		795B2D4A1A34B6B30050A82B /* FacebookSettingsAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacebookSettingsAction.h; sourceTree = "<group>"; };
-		795B2D4B1A34B6B30050A82B /* FacebookSettingsAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacebookSettingsAction.m; sourceTree = "<group>"; };
-		795B2D4E1A34B6F20050A82B /* FacebookLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacebookLoginViewController.h; sourceTree = "<group>"; };
-		795B2D4F1A34B6F20050A82B /* FacebookLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacebookLoginViewController.m; sourceTree = "<group>"; };
-		795B2D501A34B6F20050A82B /* FacebookLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FacebookLoginViewController.xib; sourceTree = "<group>"; };
 		7968B4A21A260D5600CCC1BA /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		7968B4A41A260D9F00CCC1BA /* de */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = de; path = de.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		7968B4A51A260D9F00CCC1BA /* de */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = de; path = de.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -255,8 +247,6 @@
 			children = (
 				795B2D471A34B6270050A82B /* AbstractAction.h */,
 				795B2D481A34B6270050A82B /* AbstractAction.m */,
-				795B2D4A1A34B6B30050A82B /* FacebookSettingsAction.h */,
-				795B2D4B1A34B6B30050A82B /* FacebookSettingsAction.m */,
 			);
 			name = Actions;
 			sourceTree = "<group>";
@@ -264,9 +254,6 @@
 		795B2D4D1A34B6D40050A82B /* Facebook */ = {
 			isa = PBXGroup;
 			children = (
-				795B2D4E1A34B6F20050A82B /* FacebookLoginViewController.h */,
-				795B2D4F1A34B6F20050A82B /* FacebookLoginViewController.m */,
-				795B2D501A34B6F20050A82B /* FacebookLoginViewController.xib */,
 				799E988B1A35C86C00FC144D /* FacebookMessenger.h */,
 				799E988C1A35C86C00FC144D /* FacebookMessenger.m */,
 				799E98911A35CFF300FC144D /* FacebookMultipleMatcher.h */,
@@ -625,7 +612,6 @@
 				79C242821A2537FB0002B153 /* scream-b.png in Resources */,
 				799279481A2278FC008A3216 /* whatsapp.png in Resources */,
 				799279311A226C36008A3216 /* GenericTableViewController.xib in Resources */,
-				795B2D521A34B6F20050A82B /* FacebookLoginViewController.xib in Resources */,
 				7992793C1A22730C008A3216 /* BigImageCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -646,7 +632,6 @@
 			files = (
 				797AF6971A3877A2003727B2 /* GravatarMultipleMatcher.m in Sources */,
 				79DAB5B21A215712003C71C1 /* ViewController.m in Sources */,
-				795B2D511A34B6F20050A82B /* FacebookLoginViewController.m in Sources */,
 				799279431A227756008A3216 /* ImageApplyOptions.m in Sources */,
 				797AF69C1A387D07003727B2 /* FacebookMessengerMultipleMatcher.m in Sources */,
 				79EED38F1A2F370000663594 /* SettingsController.m in Sources */,
@@ -663,7 +648,6 @@
 				79229F1B1A2DD9A700902ECB /* FileLog.m in Sources */,
 				799E98901A35C94E00FC144D /* AbstractFolderFinder.m in Sources */,
 				7968B4B11A2681DA00CCC1BA /* Facebook.m in Sources */,
-				795B2D4C1A34B6B30050A82B /* FacebookSettingsAction.m in Sources */,
 				797AF6A11A38AF9B003727B2 /* AddressbookSQL.m in Sources */,
 				79A54CF41A7939C600A35FA1 /* Settings.m in Sources */,
 				79EED3921A2F37E900663594 /* AbstractTableViewController.m in Sources */,

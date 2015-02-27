@@ -22,17 +22,11 @@
 	<array>
 		<dict>
 			<key>CFBundleURLSchemes</key>
-			<array>
-				<string>fb961308027215898</string>
-			</array>
+			<array/>
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
-	<key>FacebookAppID</key>
-	<string>961308027215898</string>
-	<key>FacebookDisplayName</key>
-	<string>AvatarSync</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UILaunchStoryboardName</key>
