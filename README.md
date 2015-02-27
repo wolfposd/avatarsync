@@ -1,6 +1,6 @@
 <h1>AvatarSync</h1>
 AvatarSync provides capabilities to synchronize profile pictures from various sources, like WhatsApp or Facebook.
-The functionalities used require a jailbroken iOS device and a compiled version can be found on TheBigBoss-repository.
+The functionalities used require a jailbroken iOS device (7.0-8.2) and a compiled version can be found on TheBigBoss-repository.
 
 <img src="https://raw.githubusercontent.com/wolfposd/avatarsync/master/AvatarSync_build_tools/screens/1.png" width="30%">
 <img src="https://raw.githubusercontent.com/wolfposd/avatarsync/master/AvatarSync_build_tools/screens/2.png" width="30%">
