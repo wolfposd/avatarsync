@@ -56,56 +56,26 @@
 
 -(void) getImagesFromWADB
 {
-
+    SQLController* con = [SQLController sqlControllerWithFile:[WAImageFinder contactsDBFullPath]];
     
-    NSString* path = [WAImageFinder findWhatsappFolder];
-    NSString* dbpath = [WAImageFinder contactsDBFullPath];
-    if(dbpath)
+    NSArray* images = [WAImageFinder getImagesFromWADB:self.person sql:&con];
+
+    [((NSMutableArray*)_matchingImages) addObjectsFromArray:images];
+    
+    [con closeDb];
+ 
+    for(PhotoFile* pf in _matchingImages)
     {
-        SQLController* con = [SQLController sqlControllerWithFile:dbpath];
-        
-        NSMutableArray* picturePaths = [NSMutableArray new];
-        
-        for (NSString* fone in self.person.phoneNumbers)
-        {
-            if(fone.length > 4)
-            {
-                NSString* where2 = [NSString stringWithFormat:@"ZWHATSAPPID LIKE '%%%@%%'", fone];
-
-                NSArray* medias = [con selectAllFrom:@"ZWASTATUS" where:where2];
-                
-                for(NSDictionary* row in medias)
-                {
-                    NSString* picpath = row[@"ZPICTUREPATH"];
-                    if(picpath)
-                    {
-                        [picturePaths addObject:picpath];
-                    }
-                }
-            }
-        }
-        [con closeDb];
-        
-        for(NSString* pp in picturePaths)
-        {
-            NSString* ff = [NSString stringWithFormat:@"%@/Library/%@.jpg",path, pp];
-            UIImage* img = [UIImage imageWithContentsOfFile:ff];
-            if(img)
-            {
-                PhotoFile* pf = [PhotoFile photoFile:NSLocalizedString(@"Profile Picture from WA-DB",nil) image:img];
-                [(NSMutableArray*)_matchingImages addObject:pf];
-            }
-        }
-        
-        [self walkfolderforThumbs];
-
+        pf.filename = NSLocalizedString(@"Profile Picture from WA-DB",nil);
     }
+    [self walkfolderforThumbs];
+    
 }
 
 
 -(void) walkfolderforThumbs
 {
-    NSArray* imgs = [WAImageFinder thumbimagesFromWAFolder:[WAImageFinder findWhatsappFolder]];
+    NSArray* imgs = [WAImageFinder thumbimagesFromWAFolder];
     for(PhotoFile* f in imgs)
     {
         NSString* phone = [f.filename stringByReplacingOccurrencesOfString:@".thumb" withString:@""];
@@ -191,13 +161,13 @@
         switch (indexpath.row) {
             case 0:
             {
-                NSArray* images = [WAImageFinder imagesFromWAFolder:[WAImageFinder findWhatsappFolder]];
+                NSArray* images = [WAImageFinder imagesFromWAFolder];
                 images = [WAImageFinder matchFotosInArrayToPeople:images];
                 ig = [[ImageGeneric alloc] initWithContact:self.person andPhotofiles:images];
                 break;
             }
             case 1:
-                ig = [[ImageGeneric alloc] initWithContact:self.person andPhotofiles:[WAImageFinder tempimagesFromWAFolder:[WAImageFinder findWhatsappFolder]]];
+                ig = [[ImageGeneric alloc] initWithContact:self.person andPhotofiles:[WAImageFinder tempimagesFromWAFolder]];
                 break;
         }
         

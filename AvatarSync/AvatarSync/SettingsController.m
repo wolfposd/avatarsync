@@ -162,6 +162,12 @@
 -(void) selectionStateChanged:(BOOL)isSelected forIndex:(NSInteger)index
 {
     [Settings setisWhatsAppMultipleIncludeThumbnail:isSelected];
+    
+    if(isSelected)
+    {
+        [[[UIAlertView alloc] initWithTitle:@"Warning" message:@"This mode is currently not fully working and might cause crashes due to memory restraints." delegate:nil cancelButtonTitle:@"Understood" otherButtonTitles: nil] show];
+    }
+    
 }
 
 

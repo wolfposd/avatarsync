@@ -23,7 +23,65 @@
 #import "FileLog.h"
 #import "AbstractFolderFinder.h"
 
+
+@interface WAImageFinder ()
+@property (nonatomic,retain) NSString* folderPath;
+@end
+
+
 @implementation WAImageFinder
+
+
+
+#pragma mark - private
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        _folderPath = [WAImageFinder searchFolder];
+    }
+    return self;
+}
+
++(NSString*) searchFolder
+{
+    NSArray *vComp = [[UIDevice currentDevice].systemVersion componentsSeparatedByString:@"."];
+    if ([[vComp objectAtIndex:0] intValue] < 8)
+    {
+        return [AbstractFolderFinder findBaseFolderIOS7:@"whatsapp"];
+    }
+    else
+    {
+        NSString* other =  [AbstractFolderFinder findSharedFolderIOS8:@"whatsapp"];
+        if(!other)
+        {
+            return [AbstractFolderFinder findBaseFolderIOS8:@"whatsapp"];
+        }
+        else
+        {
+            return other;
+        }
+    }
+}
+
+#pragma mark - public
+
+
++(BOOL)isInstalled
+{
+    return [self instance].folderPath != nil;
+}
+
++(WAImageFinder *)instance
+{
+    static WAImageFinder *myInstance = nil;
+    static dispatch_once_t onceToken2;
+    dispatch_once(&onceToken2, ^{
+        myInstance = [[WAImageFinder alloc] init];
+    });
+    return myInstance;
+}
 
 
 
@@ -40,7 +98,7 @@
 
 +(NSString*) contactsDBFullPath
 {
-    NSString* path = [self findWhatsappFolder];
+    NSString* path = [self instance].folderPath;
     if(path)
     {
         if([path rangeOfString:@"Shared"].location != NSNotFound)
@@ -53,30 +111,6 @@
         }
     }
     return nil;
-}
-
-
-+(NSString*) findWhatsappFolder
-{
-    NSArray *vComp = [[UIDevice currentDevice].systemVersion componentsSeparatedByString:@"."];
-    if ([[vComp objectAtIndex:0] intValue] < 8)
-    {
-        return [AbstractFolderFinder findBaseFolderIOS7:@"whatsapp"];
-    }
-    else
-    {
-        
-        NSString* other =  [AbstractFolderFinder findSharedFolderIOS8:@"whatsapp"];
-        if(!other)
-        {
-            return [AbstractFolderFinder findBaseFolderIOS8:@"whatsapp"];
-        }
-        else
-        {
-            return other;
-        }
-        
-    }
 }
 
 
@@ -125,25 +159,33 @@
     return [path rangeOfString:@"Shared"].location != NSNotFound;
 }
 
-
-+(NSArray*) thumbimagesFromWAFolder:(NSString*) baseWAFolder
++(BOOL) isSharedFolder
 {
+    return [[self instance].folderPath rangeOfString:@"Shared"].location != NSNotFound;
+}
+
+
++(NSArray*) thumbimagesFromWAFolder
+{
+    NSString* baseWAFolder = [self instance].folderPath;
     if([self isSharedFolder:baseWAFolder])
         return [self thumbimagesFromFolder:baseWAFolder folder:@"/Media/Profile"];
     else
         return [self thumbimagesFromFolder:baseWAFolder folder:@"/Library/Media/Profile"];
 }
 
-+(NSArray*) imagesFromWAFolder:(NSString*) baseWAFolder
++(NSArray*) imagesFromWAFolder
 {
+    NSString* baseWAFolder = [self instance].folderPath;
     if([self isSharedFolder:baseWAFolder])
         return [self imagesFromFolder:baseWAFolder folder:@"/Media/Profile"];
     else
         return [self imagesFromFolder:baseWAFolder folder:@"/Library/Media/Profile"];
 }
 
-+(NSArray*) tempimagesFromWAFolder:(NSString*) baseWAFolder
++(NSArray*) tempimagesFromWAFolder
 {
+    NSString* baseWAFolder = [self instance].folderPath;
     return [self imagesFromFolder:baseWAFolder folder:@"/Library/Caches/ProfilePictures"];
 }
 
@@ -232,7 +274,7 @@
     NSString* path = [self getPhotoPathForPerson:person sql:sql];
     if(path)
     {
-        path = [NSString stringWithFormat:@"%@/Library/%@.jpg",[WAImageFinder findWhatsappFolder], path];
+        path = [NSString stringWithFormat:@"%@/Library/%@.jpg",[self instance].folderPath, path];
         return [UIImage imageWithContentsOfFile:path];
     }
     return nil;
@@ -277,6 +319,60 @@
     }
     
     return result;
+}
+
+
++(NSArray*) getImagesFromWADB:(ASPerson*) person sql:(SQLController**) sql
+{
+    NSMutableArray* matchingImages = [NSMutableArray new];
+    
+    NSString* path = [self instance].folderPath;
+    NSString* dbpath = [WAImageFinder contactsDBFullPath];
+    if(dbpath)
+    {
+        NSMutableArray* picturePaths = [NSMutableArray new];
+        
+        for (NSString* fone in person.phoneNumbers)
+        {
+            if(fone.length > 4)
+            {
+                NSString* where2 = [NSString stringWithFormat:@"ZWHATSAPPID LIKE '%%%@%%'", fone];
+                NSArray* medias = [*sql selectAllFrom:@"ZWASTATUS" where:where2];
+                
+                for(NSDictionary* row in medias)
+                {
+                    NSString* picpath = row[@"ZPICTUREPATH"];
+                    if(picpath)
+                    {
+                        [picturePaths addObject:picpath];
+                    }
+                }
+            }
+        }
+        
+        
+        for(NSString* pp in picturePaths)
+        {
+            NSString* ff = nil;
+            if([self isSharedFolder])
+            {
+                ff = [NSString stringWithFormat:@"%@/%@.jpg",path, pp];
+            }
+            else
+            {
+                ff = [NSString stringWithFormat:@"%@/Library/%@.jpg",path, pp];
+            }
+            
+            UIImage* img = [UIImage imageWithContentsOfFile:ff];
+            if(img)
+            {
+                PhotoFile* pf = [PhotoFile photoFile:@"WhatsApp" image:img];
+                [matchingImages addObject:pf];
+            }
+        }
+        
+    }
+    return matchingImages;
 }
 
 

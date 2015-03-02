@@ -155,7 +155,7 @@
 
 -(void) pushWA:(UIViewController*) co
 {
-    if([WAImageFinder findWhatsappFolder])
+    if([WAImageFinder isInstalled])
     {
         WATableFeed* feed =  [[WATableFeed alloc] initWithContact:self.person];
         [co.navigationController pushViewController:[[GenericTableViewController alloc] initWithDelegate:feed] animated:YES];

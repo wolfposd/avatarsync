@@ -24,6 +24,8 @@
 @interface WAImageFinder : NSObject
 
 
++(BOOL) isInstalled;
+
 +(NSString*) contactsDB;
 
 +(NSString*) contactsDBFullPath;
@@ -32,16 +34,16 @@
 // ================================
 
 
-+(NSString*) findWhatsappFolder;
+//+(NSString*) findWhatsappFolder;
 
-+(NSArray*) imagesFromWAFolder:(NSString*) baseWAFolder;
++(NSArray*) imagesFromWAFolder;
 
 +(NSArray*) thumbimagesFromFolder:(NSString*) baseFolder folder:(NSString*) folder;
 
 
-+(NSArray*) thumbimagesFromWAFolder:(NSString*) baseWAFolder;
++(NSArray*) thumbimagesFromWAFolder;
 
-+(NSArray*) tempimagesFromWAFolder:(NSString*) baseWAFolder;
++(NSArray*) tempimagesFromWAFolder;
 
 
 // ============
@@ -60,5 +62,9 @@
 
 
 +(UIImage*) getPhotoForPerson:(ASPerson*) person sql:(SQLController* __autoreleasing*) sql;
+
+
++(NSArray*) getImagesFromWADB:(ASPerson*) person sql:(SQLController* __autoreleasing*) sql;
+
 
 @end
