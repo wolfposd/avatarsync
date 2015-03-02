@@ -21,6 +21,7 @@
 #import "FacebookMessenger.h"
 #import "AbstractFolderFinder.h"
 #import "SQLController.h"
+#import "FileUtility.h"
 
 
 @implementation FacebookMessenger
@@ -85,13 +86,10 @@
 
 
 
-+(UIImage*) downloadImageForUserId:(NSString*) userID
++(NSString*) downloadImageForUserId:(NSString*) userID
 {
     NSURL* url = [NSURL URLWithString:[NSString stringWithFormat:@"http://graph.facebook.com/%@/picture?type=large",userID]];
-    
-    UIImage* image = [UIImage imageWithData:[NSData dataWithContentsOfURL:url]];
-    return image;
-
+    return [FileUtility downloadContentFrom:url saveas:[NSString stringWithFormat:@"%@.png",userID]];
 }
 
 +(NSString*) findContactsDBPathMessenger

@@ -21,6 +21,7 @@
 #import "Crypto.h"
 #import "PhotoFile.h"
 #import "ContactsTableViewController.h"
+#import "FileUtility.h"
 
 @interface GravatarFeed ()
 
@@ -49,15 +50,14 @@
 
 +(PhotoFile*) loadImageForEmail:(NSString*) email
 {
-    NSURL* url = [NSURL URLWithString:[NSString stringWithFormat:@"http://www.gravatar.com/avatar/%@?s=400&d=404",[Crypto md5HexDigest:email]]];    
-    UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL: url]];
+    NSURL* url = [NSURL URLWithString:[NSString stringWithFormat:@"http://www.gravatar.com/avatar/%@?s=400&d=404",[Crypto md5HexDigest:email]]];
     
-    if(image)
-    {
-        return [PhotoFile photoFile:email image:image];
-    }
+    NSString* filePath = [FileUtility downloadContentFrom:url saveas:[NSString stringWithFormat:@"%@.png",email]];
     
-    return nil;
+    if(filePath)
+        return [PhotoFile photoFile:email filepath:filePath];
+    else
+        return nil;
 }
 
 -(void) loadImages

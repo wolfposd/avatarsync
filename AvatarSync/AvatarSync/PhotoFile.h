@@ -23,9 +23,11 @@
 @interface PhotoFile : NSObject
 
 
-@property (nonatomic,retain) UIImage* image;
 @property (nonatomic,retain) NSString* filename;
+@property (nonatomic,retain) NSString* fullFilePath;
 
-+(id) photoFile:(NSString*) filename image:(UIImage*) image;
++(PhotoFile*) photoFile:(NSString*) filename filepath:(NSString*) fullfilepath;
+
+-(UIImage*) image;
 
 @end

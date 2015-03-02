@@ -10,6 +10,8 @@
 		79229F1B1A2DD9A700902ECB /* FileLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 79229F1A1A2DD9A700902ECB /* FileLog.m */; };
 		79229F1C1A2DD9A700902ECB /* FileLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 79229F1A1A2DD9A700902ECB /* FileLog.m */; };
 		792F58681A3F221B0059153D /* NSString+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 792F58671A3F221B0059153D /* NSString+Base64.m */; };
+		794E8E381AA4DF2700564F8A /* FileUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 794E8E371AA4DF2700564F8A /* FileUtility.m */; };
+		794E8E3A1AA4E8ED00564F8A /* missing.png in Resources */ = {isa = PBXBuildFile; fileRef = 794E8E391AA4E8ED00564F8A /* missing.png */; };
 		795B2D491A34B6270050A82B /* AbstractAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 795B2D481A34B6270050A82B /* AbstractAction.m */; };
 		7968B4A11A260D4200CCC1BA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7968B49F1A260D4200CCC1BA /* Localizable.strings */; };
 		7968B4AC1A260FFE00CCC1BA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79DAB5B31A215712003C71C1 /* Main.storyboard */; };
@@ -98,6 +100,9 @@
 		79229F1A1A2DD9A700902ECB /* FileLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileLog.m; sourceTree = "<group>"; };
 		792F58661A3F221B0059153D /* NSString+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Base64.h"; sourceTree = "<group>"; };
 		792F58671A3F221B0059153D /* NSString+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Base64.m"; sourceTree = "<group>"; };
+		794E8E361AA4DF2700564F8A /* FileUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileUtility.h; sourceTree = "<group>"; };
+		794E8E371AA4DF2700564F8A /* FileUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileUtility.m; sourceTree = "<group>"; };
+		794E8E391AA4E8ED00564F8A /* missing.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = missing.png; sourceTree = "<group>"; };
 		795B2D471A34B6270050A82B /* AbstractAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbstractAction.h; sourceTree = "<group>"; };
 		795B2D481A34B6270050A82B /* AbstractAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AbstractAction.m; sourceTree = "<group>"; };
 		7968B4A21A260D5600CCC1BA /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -283,6 +288,8 @@
 				797AF6A31A39A91E003727B2 /* ASPersonSQL.m */,
 				792F58661A3F221B0059153D /* NSString+Base64.h */,
 				792F58671A3F221B0059153D /* NSString+Base64.m */,
+				794E8E361AA4DF2700564F8A /* FileUtility.h */,
+				794E8E371AA4DF2700564F8A /* FileUtility.m */,
 			);
 			name = Utility;
 			sourceTree = "<group>";
@@ -339,6 +346,7 @@
 		799279441A2278FC008A3216 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				794E8E391AA4E8ED00564F8A /* missing.png */,
 				797AF69D1A38859F003727B2 /* fb_mess.png */,
 				799E98941A35D2A700FC144D /* fbmessenger.png */,
 				799A0CF51A309ED000879774 /* dickbutt.png */,
@@ -594,6 +602,7 @@
 				799E98951A35D2A700FC144D /* fbmessenger.png in Resources */,
 				79A2355B1A24E4BA00B1C01E /* gravatar.png in Resources */,
 				7968B4A11A260D4200CCC1BA /* Localizable.strings in Resources */,
+				794E8E3A1AA4E8ED00564F8A /* missing.png in Resources */,
 				79EB239E1A2518500012EEB4 /* twitter.png in Resources */,
 				79EED3871A2F350900663594 /* multiple@2x.png in Resources */,
 				79EED3881A2F350900663594 /* single.png in Resources */,
@@ -650,6 +659,7 @@
 				7968B4B11A2681DA00CCC1BA /* Facebook.m in Sources */,
 				797AF6A11A38AF9B003727B2 /* AddressbookSQL.m in Sources */,
 				79A54CF41A7939C600A35FA1 /* Settings.m in Sources */,
+				794E8E381AA4DF2700564F8A /* FileUtility.m in Sources */,
 				79EED3921A2F37E900663594 /* AbstractTableViewController.m in Sources */,
 				79A235571A24E30D00B1C01E /* Crypto.m in Sources */,
 				799279291A22668A008A3216 /* WAImageFinder.m in Sources */,

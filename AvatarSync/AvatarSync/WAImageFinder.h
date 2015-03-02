@@ -60,8 +60,15 @@
 +(NSString*) getFullNamefromZWACONTACT:(NSString*) whereclause sql:(SQLController**) sql;
 
 
-
-+(UIImage*) getPhotoForPerson:(ASPerson*) person sql:(SQLController* __autoreleasing*) sql;
+/**
+ *  Returns the fully qualified path to a photo or nil
+ *
+ *  @param person person to look for
+ *  @param sql    sql controller to use
+ *
+ *  @return path or nil
+ */
++(NSString*) getPhotoForPerson:(ASPerson*) person sql:(SQLController* __autoreleasing*) sql;
 
 
 +(NSArray*) getImagesFromWADB:(ASPerson*) person sql:(SQLController* __autoreleasing*) sql;

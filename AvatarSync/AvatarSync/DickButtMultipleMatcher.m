@@ -27,7 +27,9 @@
 
 -(NSArray*) getPhotosForPerson:(ASPerson*) person
 {
-    return @[[PhotoFile photoFile:@"Dickbutt" image:[UIImage imageNamed:@"dickbutt"]]];
+    PhotoFile* f = [PhotoFile photoFile:@"Dickbutt" filepath:@"dickbutt.png"];
+    
+    return @[f];
 }
 
 -(UIImage*) imageForMatcher

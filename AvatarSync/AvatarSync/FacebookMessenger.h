@@ -42,6 +42,13 @@
 
 +(NSString*) findContactsDBPathApp;
 
-+(UIImage*) downloadImageForUserId:(NSString*) userID;
+/**
+ *  Downloads an image for the given user id and saves it to the disk
+ *
+ *  @param userID FB-userid
+ *
+ *  @return returns the path where the image is saved
+ */
++(NSString*) downloadImageForUserId:(NSString*) userID;
 
 @end

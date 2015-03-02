@@ -152,6 +152,11 @@
     PhotoFile* f =self.personsAndImages[indexPath.section][row];
     
     cell.bigImage.image =  f.image;
+    if(!cell.bigImage.image)
+    {
+        cell.bigImage.image = [UIImage imageNamed:@"missing"];
+    }
+    
     cell.bigLabel.text = f.filename;
     
     return cell;

@@ -79,7 +79,7 @@
     for(PhotoFile* f in imgs)
     {
         NSString* phone = [f.filename stringByReplacingOccurrencesOfString:@".thumb" withString:@""];
-        
+
         if([self.person doesPhoneMatchPerson:phone])
         {
             [(NSMutableArray*)_matchingThumbImages addObject:f];
@@ -188,7 +188,7 @@
         }
         else
         {
-            f = [PhotoFile photoFile:NSLocalizedString(@"No HD Image Found",nil) image:[UIImage imageNamed:@"noimage.png"]];
+            f = [PhotoFile photoFile:NSLocalizedString(@"No HD Image Found",nil) filepath:@"noimage.png"];
             (*cell).bigLabel.textColor = [UIColor redColor];
         }
     }
@@ -202,10 +202,10 @@
         switch (indexpath.row)
         {
             case 0:
-                f = [PhotoFile photoFile:NSLocalizedString(@"HD Profile Images",nil) image:[UIImage imageNamed:@"hd.png"]];
+                f = [PhotoFile photoFile:NSLocalizedString(@"HD Profile Images",nil) filepath:@"hd.png"];
                 break;
             case 1:
-                f = [PhotoFile photoFile:NSLocalizedString(@"Cached Profile Images",nil) image:[UIImage imageNamed:@"sd.png"]];
+                f = [PhotoFile photoFile:NSLocalizedString(@"Cached Profile Images",nil) filepath:@"sd.png"];
                 break;
         }
         (*cell).bigLabel.textColor = [UIColor blackColor];

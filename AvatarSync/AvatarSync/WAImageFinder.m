@@ -141,10 +141,9 @@
         if([imageFile rangeOfString:extension].location != NSNotFound)
         {
             NSString* imagepath = [NSString stringWithFormat:@"%@/%@",dir,imageFile];
-            UIImage* image = [UIImage imageWithContentsOfFile:imagepath];
-            if(image)
+            if(imagepath)
             {
-                PhotoFile* f = [PhotoFile photoFile:imageFile image:image];
+                PhotoFile* f = [PhotoFile photoFile:imageFile filepath:imagepath];
                 [images addObject:f];
             }
         }
@@ -269,13 +268,21 @@
 }
 
 
-+(UIImage*) getPhotoForPerson:(ASPerson*) person sql:(SQLController*__autoreleasing*) sql
++(NSString*) getPhotoForPerson:(ASPerson*) person sql:(SQLController*__autoreleasing*) sql
 {
     NSString* path = [self getPhotoPathForPerson:person sql:sql];
     if(path)
     {
-        path = [NSString stringWithFormat:@"%@/Library/%@.jpg",[self instance].folderPath, path];
-        return [UIImage imageWithContentsOfFile:path];
+        if([self isSharedFolder])
+        {
+            path = [NSString stringWithFormat:@"%@/%@.jpg",[self instance].folderPath, path];
+        }
+        else
+        {
+            path = [NSString stringWithFormat:@"%@/Library/%@.jpg",[self instance].folderPath, path];
+        }
+        
+        return path;
     }
     return nil;
 }
@@ -353,20 +360,19 @@
         
         for(NSString* pp in picturePaths)
         {
-            NSString* ff = nil;
+            NSString* imagePath = nil;
             if([self isSharedFolder])
             {
-                ff = [NSString stringWithFormat:@"%@/%@.jpg",path, pp];
+                imagePath = [NSString stringWithFormat:@"%@/%@.jpg",path, pp];
             }
             else
             {
-                ff = [NSString stringWithFormat:@"%@/Library/%@.jpg",path, pp];
+                imagePath = [NSString stringWithFormat:@"%@/Library/%@.jpg",path, pp];
             }
-            
-            UIImage* img = [UIImage imageWithContentsOfFile:ff];
-            if(img)
+      
+            if(imagePath)
             {
-                PhotoFile* pf = [PhotoFile photoFile:@"WhatsApp" image:img];
+                PhotoFile* pf = [PhotoFile photoFile:@"WhatsApp" filepath:imagePath];
                 [matchingImages addObject:pf];
             }
         }

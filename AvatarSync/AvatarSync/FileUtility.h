@@ -17,31 +17,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 //
 
-#import "PhotoFile.h"
+#import <Foundation/Foundation.h>
 
+@interface FileUtility : NSObject
 
-@implementation PhotoFile
++(NSString*) downloadContentFrom:(NSURL*) url saveas:(NSString*) filename;
 
-
--(UIImage *)image
-{
-    if([self.fullFilePath rangeOfString:@"/"].location == NSNotFound)
-    {
-        return [UIImage imageNamed:self.fullFilePath];
-    }
-    else
-    {
-        return [UIImage imageWithContentsOfFile:self.fullFilePath];
-    }
-}
-
-+(PhotoFile*) photoFile:(NSString*) filename filepath:(NSString*) fullfilepath
-{
-    PhotoFile* f = [PhotoFile new];
-    f.fullFilePath = fullfilepath;
-    f.filename = filename;
-    return f;
-}
-
++(void)createDirectory:(NSString *)directoryName atFilePath:(NSString *)filePath;
 
 @end

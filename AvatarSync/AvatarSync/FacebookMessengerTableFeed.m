@@ -102,13 +102,13 @@
             user = [FacebookMessenger fbIdforUserMessenger:self.person];
         }
 
-        UIImage* image = [FacebookMessenger downloadImageForUserId:user];
+        NSString* imagePath = [FacebookMessenger downloadImageForUserId:user];
         self.isStillLoading = NO;
         dispatch_async(dispatch_get_main_queue(), ^(){
-            if(image)
+            if(imagePath)
             {
                 self.pictureFound = YES;
-                self.imageForPerson = image;
+                self.imageForPerson = [UIImage imageWithContentsOfFile:imagePath];
             }
             [self.ownerDelegate reloadTableData];
         });

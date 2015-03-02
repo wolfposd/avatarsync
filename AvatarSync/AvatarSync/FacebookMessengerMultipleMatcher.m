@@ -54,10 +54,10 @@
     NSString* idForUser = [FacebookMessenger fbIdforUser:person sql:&con];
     if(idForUser)
     {
-        UIImage* image = [FacebookMessenger downloadImageForUserId:idForUser];
-        if(image)
+        NSString* imagePath = [FacebookMessenger downloadImageForUserId:idForUser];
+        if(imagePath)
         {
-            PhotoFile* f = [PhotoFile photoFile:[self textForMatcher] image:image];
+            PhotoFile* f = [PhotoFile photoFile:[self textForMatcher] filepath:imagePath];
             
             [result addObject:f];
         }

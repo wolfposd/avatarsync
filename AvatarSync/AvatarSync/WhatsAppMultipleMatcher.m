@@ -60,11 +60,11 @@
     
     SQLController* sql = _sql;
     
-    UIImage* img = [WAImageFinder getPhotoForPerson:person sql:&sql];
+    NSString* imagePath = [WAImageFinder getPhotoForPerson:person sql:&sql];
     
-    if(img)
+    if(imagePath)
     {
-        PhotoFile* f = [PhotoFile photoFile:@"WhatsApp" image:img];
+        PhotoFile* f = [PhotoFile photoFile:@"WhatsApp" filepath:imagePath];
         [ar addObject:f];
     }
     
@@ -78,6 +78,7 @@
     if(ar.count == 0 && [Settings isWhatsAppMultipleIncludeThumbnail])
     {
         NSArray* imgs = [WAImageFinder thumbimagesFromWAFolder];
+
         for(PhotoFile* f in imgs)
         {
             if(f.filename)
