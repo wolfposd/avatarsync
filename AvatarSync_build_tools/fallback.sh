@@ -9,7 +9,7 @@
 
 # ====   SETTINGS   ====
 
-buildtoolspath="/Volumes/HDD/wolf/svn/xcode/AvatarSync_build_tools/"
+buildtoolspath="/Volumes/HDD/wolf/git/avatarsync/AvatarSync_build_tools/"
 scppath="/var/www/_repo_priv"
 sshpath="www/_repo_priv/"
 

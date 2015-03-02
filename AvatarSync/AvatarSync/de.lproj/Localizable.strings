@@ -35,7 +35,7 @@
 
 // ImageApplyOptions
 "Select an imagesource for\n%@ %@" = "Wähle eine Bildquelle aus für\n%@ %@";
-"Source Selection" = "Quellen-Wahl";
+"Source Selection" = "Quellen-Auswahl";
 "Pick a Source" = "Wähle eine Quelle aus";
 "Automatic" = "Automatisch";
 "Semi-Automatic" = "Semi-Automatisch";
