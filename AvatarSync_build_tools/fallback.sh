@@ -9,9 +9,9 @@
 
 # ====   SETTINGS   ====
 
-buildtoolspath="~/git/AvatarSync/AvatarSync_build_tools/"
-scppath="/var/www/myrepository"
-sshpath="www/myrepository"
+buildtoolspath="/Volumes/HDD/wolf/svn/xcode/AvatarSync_build_tools/"
+scppath="/var/www/_repo_priv"
+sshpath="www/_repo_priv/"
 
 # ==== SETTINGS END ====
 
@@ -28,12 +28,14 @@ echo "signing application"
 /opt/theos/bin/ldid -S AvatarSync/Applications/AvatarSync.app/AvatarSync 
 
 
+
 echo "removing .DS_Store"
 find ./ -name ".DS_Store" | xargs rm
 
 
 echo "packaging..."
 dpkg-deb -Zgzip -b AvatarSync
+
 
 
 echo "Uploading to {$1}"
