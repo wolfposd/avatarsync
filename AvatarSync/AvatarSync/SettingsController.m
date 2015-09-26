@@ -132,9 +132,13 @@
 {
     if(indexPath.section == 0)
     {
-        AbstractAction* action = self.actions[indexPath.section][indexPath.row];
-        
-        [action actionBeenClickedBy:self];
+//        
+//        id what = self.actions[indexPath.section][indexPath.row];
+//        NSLog(@"%@", [what class]);
+//        
+//        AbstractAction* action = self.actions[indexPath.section][indexPath.row];
+//        
+//        [action actionBeenClickedBy:self];
     }
 }
 
@@ -162,12 +166,6 @@
 -(void) selectionStateChanged:(BOOL)isSelected forIndex:(NSInteger)index
 {
     [Settings setisWhatsAppMultipleIncludeThumbnail:isSelected];
-    
-    if(isSelected)
-    {
-        [[[UIAlertView alloc] initWithTitle:@"Warning" message:@"This mode is currently not fully working and might cause crashes due to memory restraints." delegate:nil cancelButtonTitle:@"Understood" otherButtonTitles: nil] show];
-    }
-    
 }
 
 

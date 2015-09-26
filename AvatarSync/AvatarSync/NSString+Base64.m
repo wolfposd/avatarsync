@@ -219,4 +219,11 @@ static char base64EncodingTable[64] = {
 }
 
 
+-(NSInteger) countOccurencesOfString:(NSString*) needle
+{
+    NSInteger strCount = [self length] - [[self stringByReplacingOccurrencesOfString:needle withString:@""] length];
+    return strCount / [needle length];
+}
+
+
 @end

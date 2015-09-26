@@ -25,4 +25,7 @@
 
 +(void)createDirectory:(NSString *)directoryName atFilePath:(NSString *)filePath;
 
+
++(BOOL) checkIfFileExistsAtPath:(NSString*) filePath;
+
 @end

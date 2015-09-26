@@ -68,5 +68,8 @@
  */
 -(NSString*) unbase64String;
 
+
+-(NSInteger) countOccurencesOfString:(NSString*) needle;
+
 @end
 

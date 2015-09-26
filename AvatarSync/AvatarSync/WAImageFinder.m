@@ -22,7 +22,8 @@
 #import "PhotoFile.h"
 #import "FileLog.h"
 #import "AbstractFolderFinder.h"
-
+#import "FileUtility.h"
+#import "NSString+Base64.h"
 
 @interface WAImageFinder ()
 @property (nonatomic,retain) NSString* folderPath;
@@ -138,7 +139,9 @@
     
     for(NSString* imageFile in files)
     {
-        if([imageFile rangeOfString:extension].location != NSNotFound)
+        // check if extension mathces with given extension
+        // check if its not a group-image (they contain 2 x "-" )
+        if([imageFile rangeOfString:extension].location != NSNotFound && [imageFile countOccurencesOfString:@"-"] < 2)
         {
             NSString* imagepath = [NSString stringWithFormat:@"%@/%@",dir,imageFile];
             if(imagepath)
@@ -281,8 +284,9 @@
         {
             path = [NSString stringWithFormat:@"%@/Library/%@.jpg",[self instance].folderPath, path];
         }
-        
-        return path;
+
+        if([FileUtility checkIfFileExistsAtPath:path])
+            return path;
     }
     return nil;
 }
@@ -369,8 +373,8 @@
             {
                 imagePath = [NSString stringWithFormat:@"%@/Library/%@.jpg",path, pp];
             }
-      
-            if(imagePath)
+
+            if(imagePath && [FileUtility checkIfFileExistsAtPath:imagePath])
             {
                 PhotoFile* pf = [PhotoFile photoFile:@"WhatsApp" filepath:imagePath];
                 [matchingImages addObject:pf];

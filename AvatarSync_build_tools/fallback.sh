@@ -36,11 +36,12 @@ find ./ -name ".DS_Store" | xargs rm
 echo "packaging..."
 dpkg-deb -Zgzip -b AvatarSync
 
+cp AvatarSync.deb /Volumes/HDD/wolf/git/wolfposd.github.io/
+
+cd /Volumes/HDD/wolf/git/wolfposd.github.io/
+sh import.sh
 
 
-echo "Uploading to {$1}"
-
-scp AvatarSync.deb ${1}:$scppath
-
-
-ssh ${1} "cd $sshpath; sudo sh import.sh; exit;"
+#echo "Uploading to {$1}"
+#scp AvatarSync.deb ${1}:$scppath
+#ssh ${1} "cd $sshpath; sudo sh import.sh; exit;"

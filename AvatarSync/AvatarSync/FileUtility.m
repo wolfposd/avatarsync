@@ -57,6 +57,13 @@
     return filePath;
 }
 
++(BOOL) checkIfFileExistsAtPath:(NSString*) filePath
+{
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    
+    return [fileManager fileExistsAtPath:filePath];
+}
+
 
 
 @end
