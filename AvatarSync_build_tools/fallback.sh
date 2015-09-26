@@ -5,13 +5,12 @@
 
 # ====     USAGE    ====
 # to execute the script call in terminal:
-# sh fallback.sh username@localhost
+# sh fallback.sh
 
 # ====   SETTINGS   ====
 
 buildtoolspath="/Volumes/HDD/wolf/git/avatarsync/AvatarSync_build_tools/"
-scppath="/var/www/_repo_priv"
-sshpath="www/_repo_priv/"
+
 
 # ==== SETTINGS END ====
 
@@ -42,6 +41,9 @@ cd /Volumes/HDD/wolf/git/wolfposd.github.io/
 sh import.sh
 
 
+
+#scppath="/var/www/_repo_priv"
+#sshpath="www/_repo_priv/"
 #echo "Uploading to {$1}"
 #scp AvatarSync.deb ${1}:$scppath
 #ssh ${1} "cd $sshpath; sudo sh import.sh; exit;"

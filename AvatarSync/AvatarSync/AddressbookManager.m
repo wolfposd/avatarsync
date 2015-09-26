@@ -59,7 +59,7 @@
 {
     [FileLog log:@"AddressbookManager- starting check permission" level:LOGLEVEL_DEBUG];
     
-    NSLog(@"status: %ld", ABAddressBookGetAuthorizationStatus());
+    NSLog(@"ABAddressBookGetAuthorizationStatus: %ld", ABAddressBookGetAuthorizationStatus());
     
     if (ABAddressBookGetAuthorizationStatus() == kABAuthorizationStatusDenied || ABAddressBookGetAuthorizationStatus() == kABAuthorizationStatusRestricted)
     {

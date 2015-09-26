@@ -22,6 +22,7 @@
 #import "AbstractFolderFinder.h"
 #import "SQLController.h"
 #import "FileUtility.h"
+#import "FileLog.h"
 
 
 @implementation FacebookMessenger
@@ -38,7 +39,7 @@
     }
     else
     {
-        return [AbstractFolderFinder findBaseFolderIOS8:@"facebook.messenger"];
+        return [AbstractFolderFinder findSharedFolderIOS8:@"com.facebook.messenger"];
     }
 }
 
@@ -52,7 +53,7 @@
     }
     else
     {
-        return [AbstractFolderFinder findBaseFolderIOS8:@"facebook.facebook"];
+        return [AbstractFolderFinder findSharedFolderIOS8:@"facebook.facebook"];
     }
 }
 
@@ -112,8 +113,8 @@
     NSFileManager *manager = [NSFileManager defaultManager];
     
     
-    NSString* basePath = [FBAPPBASEPATH stringByAppendingString:@"/Library/Caches"];
-    NSError *error;
+    NSString* basePath = [FBAPPBASEPATH stringByAppendingString:@""];
+    NSError *error = nil;
     NSArray *folders = [manager contentsOfDirectoryAtPath:basePath error:&error];
     
     if (!error)
@@ -136,6 +137,10 @@
                 
             }
         }
+    }
+    else
+    {
+        [FileLog log:[NSString stringWithFormat:@"findContactsDBPathFor:%@ encountered error: %@",FBAPPBASEPATH, error] level:LOGLEVEL_ERROR];
     }
     
     return nil;

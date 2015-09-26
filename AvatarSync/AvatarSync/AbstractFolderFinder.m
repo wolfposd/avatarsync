@@ -35,7 +35,8 @@
 {
     NSString *dir = @"/var/mobile/Containers/Data/Application/";
    
-    return [self findFolderIOS8:appName folder:dir];
+    NSString* result =[self findFolderIOS8:appName folder:dir];
+    return result;
 }
 
 
@@ -43,7 +44,7 @@
 {
     NSFileManager *manager = [NSFileManager defaultManager];
     
-    NSError *error;
+    NSError *error = nil;
     NSArray *folders = [manager contentsOfDirectoryAtPath:dir error:&error];
     
     if (!error)

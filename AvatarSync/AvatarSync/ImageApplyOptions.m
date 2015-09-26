@@ -172,6 +172,7 @@
 {
     if([FacebookMessenger findContactsDBPathMessenger])
     {
+        NSLog(@"%@", @"AM IN HERE");
         FacebookMessengerTableFeed* fb = [[FacebookMessengerTableFeed alloc] initWithContact:self.person isFacebookApp:NO];
         [co.navigationController pushViewController:[[GenericTableViewController alloc] initWithDelegate:fb] animated:YES];
     }
