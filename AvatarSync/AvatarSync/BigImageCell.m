@@ -22,6 +22,7 @@
 @implementation BigImageCell
 
 - (void)awakeFromNib {
+    [super awakeFromNib];
     // Initialization code
 }
 

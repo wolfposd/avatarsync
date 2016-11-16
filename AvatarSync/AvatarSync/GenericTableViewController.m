@@ -80,34 +80,39 @@
 
 -(void) makeHeaderWithSize:(CGSize) size
 {
-    float width = size.width;
-    UIView* view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, width, 120)];
-    
-    UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(0, 15, width, 30)];
-    label.textAlignment = NSTextAlignmentCenter;
-    label.font = [UIFont fontWithName:@"Helvetica" size:22];
-    label.backgroundColor = [UIColor whiteColor];
-    label.textColor = [UIColor blackColor];
-    label.text = [self.delegate titleForHeader];
-    
-    
-    UILabel* desc = [[UILabel alloc] initWithFrame:CGRectMake(0, 45, width, 60)];
-    desc.textAlignment = NSTextAlignmentCenter;
-    desc.font = [UIFont fontWithName:@"Helvetica" size:16];
-    desc.backgroundColor = [UIColor whiteColor];
-    desc.textColor = [UIColor blackColor];
-    desc.numberOfLines = 4;
-    desc.lineBreakMode = NSLineBreakByWordWrapping;
-    desc.text = [self.delegate descriptionForHeader];
-    
-    
-    [view addSubview:label];
-    [view addSubview:desc];
-    
-    view.backgroundColor = [UIColor whiteColor];
-    
-    self.tableView.tableHeaderView = view;
-
+    @try {
+        float width = size.width;
+        UIView* view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, width, 120)];
+        
+        UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(0, 15, width, 30)];
+        label.textAlignment = NSTextAlignmentCenter;
+        label.font = [UIFont fontWithName:@"Helvetica" size:22];
+        label.backgroundColor = [UIColor whiteColor];
+        label.textColor = [UIColor blackColor];
+        label.text = [self.delegate titleForHeader];
+        
+        
+        UILabel* desc = [[UILabel alloc] initWithFrame:CGRectMake(0, 45, width, 60)];
+        desc.textAlignment = NSTextAlignmentCenter;
+        desc.font = [UIFont fontWithName:@"Helvetica" size:16];
+        desc.backgroundColor = [UIColor whiteColor];
+        desc.textColor = [UIColor blackColor];
+        desc.numberOfLines = 4;
+        desc.lineBreakMode = NSLineBreakByWordWrapping;
+        desc.text = [self.delegate descriptionForHeader];
+        
+        
+        [view addSubview:label];
+        [view addSubview:desc];
+        
+        view.backgroundColor = [UIColor whiteColor];
+        
+        self.tableView.tableHeaderView = view;
+    }
+    @catch (NSException * e)
+    {
+        NSLog(@"Exception: %@", e);
+    }
 }
 
 -(void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator

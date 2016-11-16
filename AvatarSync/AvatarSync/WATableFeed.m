@@ -167,7 +167,7 @@
                 break;
             }
             case 1:
-                ig = [[ImageGeneric alloc] initWithContact:self.person andPhotofiles:[WAImageFinder tempimagesFromWAFolder]];
+                ig = [[ImageGeneric alloc] initWithContact:self.person andPhotofiles:[WAImageFinder thumbimagesFromWAFolder]];
                 break;
         }
         

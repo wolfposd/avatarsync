@@ -28,4 +28,7 @@
 
 +(BOOL) checkIfFileExistsAtPath:(NSString*) filePath;
 
++(NSArray*) getClosestMatchingFiles:(NSString*) folderpath contains:(NSString*) containsString;
++(NSArray*) getClosestMatchingFiles:(NSString*) folderpath contains:(NSString*) containsString notContains:(NSString*) notContains;
+
 @end

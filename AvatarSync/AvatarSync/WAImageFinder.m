@@ -108,7 +108,8 @@
         }
         else
         {
-            return [NSString stringWithFormat:@"%@/%@", path, [self contactsDB]];
+            NSString* string = [NSString stringWithFormat:@"%@/%@", path, [self contactsDB]];
+            return string;
         }
     }
     return nil;
@@ -235,6 +236,7 @@
 {
     NSString* whatsappid = nil;
     
+    NSLog(@"%@", @"before error?");
     NSArray* results = [*sql selectAllFrom:@"ZWASTATUS" where:whereclause];
     
     if(results.count > 0)
@@ -360,8 +362,7 @@
                 }
             }
         }
-        
-        
+
         for(NSString* pp in picturePaths)
         {
             NSString* imagePath = nil;
@@ -380,6 +381,27 @@
                 [matchingImages addObject:pf];
             }
         }
+        
+        if(matchingImages.count == 0)
+        {
+            NSString* profileDir = [NSString stringWithFormat:@"%@/Media/Profile",path];
+            for(NSString* fone in person.phoneNumbers)
+            {
+                NSArray* result = [FileUtility getClosestMatchingFiles:profileDir contains:fone notContains:@".thumb"];
+                for(NSString* filepath in result)
+                {
+                    NSUInteger countDashes = [filepath countOccurencesOfString:@"-"];
+                    
+                    if(countDashes < 6)
+                    {
+                        PhotoFile* pf = [PhotoFile photoFile:@"WhatsApp" filepath:filepath];
+                        [matchingImages addObject:pf];
+                    }
+                    
+                }
+            }
+        }
+        
         
     }
     return matchingImages;

@@ -66,4 +66,47 @@
 
 
 
++(NSArray*) getClosestMatchingFiles:(NSString *)folderpath contains:(NSString *)containsString notContains:(NSString*) notContains
+{
+    NSMutableArray* result = [NSMutableArray new];
+    
+    NSFileManager* filemanager = [NSFileManager defaultManager];
+    
+    NSError* error = nil;
+    
+    NSArray* files = [filemanager contentsOfDirectoryAtPath:folderpath error:&error];
+    
+    if(!error)
+    {
+        for(NSString* fileName in files)
+        {
+            if(notContains == nil)
+            {
+                if([fileName rangeOfString:containsString].location != NSNotFound)
+                {
+                    [result addObject:[NSString stringWithFormat:@"%@/%@", folderpath, fileName]];
+                }
+            }
+            else
+            {
+                if([fileName rangeOfString:containsString].location != NSNotFound
+                   && [fileName rangeOfString:notContains].location == NSNotFound)
+                {
+                    [result addObject:[NSString stringWithFormat:@"%@/%@", folderpath, fileName]];
+                }
+            }
+            
+        }
+    }
+    return result;
+
+}
+
+
++(NSArray*) getClosestMatchingFiles:(NSString*) folderpath contains:(NSString*) containsString {
+    return [self getClosestMatchingFiles:folderpath contains:containsString notContains:nil];
+}
+
+
+
 @end
