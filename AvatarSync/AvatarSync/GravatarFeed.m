@@ -50,7 +50,7 @@
 
 +(PhotoFile*) loadImageForEmail:(NSString*) email
 {
-    NSURL* url = [NSURL URLWithString:[NSString stringWithFormat:@"http://www.gravatar.com/avatar/%@?s=400&d=404",[Crypto md5HexDigest:email]]];
+    NSURL* url = [NSURL URLWithString:[NSString stringWithFormat:@"https://www.gravatar.com/avatar/%@?s=400&d=404",[Crypto md5HexDigest:email]]];
     
     NSString* filePath = [FileUtility downloadContentFrom:url saveas:[NSString stringWithFormat:@"%@.png",email]];
     
