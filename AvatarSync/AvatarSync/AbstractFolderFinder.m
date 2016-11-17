@@ -27,8 +27,8 @@
 +(NSString*) findSharedFolderIOS8:(NSString*) appName
 {
     NSString *dir = @"/var/mobile/Containers/Shared/AppGroup/";
-    
-    return [self findFolderIOS8:appName folder:dir];
+    NSString* result = [self findFolderIOS8:appName folder:dir];
+    return result;
 }
 
 +(NSString*) findBaseFolderIOS8:(NSString*) appName
@@ -61,7 +61,7 @@
                 {
                     NSString* fullpath = [NSString stringWithFormat:@"%@/%@",folderPath, itemPath];
                     NSDictionary *dict = [[NSDictionary alloc] initWithContentsOfFile:fullpath];
-                    
+                   
                     NSString* mcmmetadata = dict[@"MCMMetadataIdentifier"];
                     if(mcmmetadata && [mcmmetadata.lowercaseString rangeOfString:appName].location != NSNotFound)
                     {

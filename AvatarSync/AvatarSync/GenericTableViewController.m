@@ -56,12 +56,25 @@
 {
     [super viewWillAppear:animated];
     self.title = [self.delegate navTitle];
-    [self makeHeader];
+  
+    // for some reason the own viewcontroller has wrong width on some models
+    [self makeHeaderWithSize:self.navigationController.view.bounds.size.width];
     
     if([self.delegate respondsToSelector:@selector(controllerWillAppear)])
     {
         [self.delegate controllerWillAppear];
     }
+}
+
+//-(void)viewDidLayoutSubviews {
+//    NSLog(@"viewDidLayoutSubviews %f %f", self.view.bounds.size.height, self.view.bounds.size.width);
+//    
+//    [self makeHeader];
+//}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [self makeHeader];
 }
 
 -(void)viewWillDisappear:(BOOL)animated
@@ -75,13 +88,13 @@
 
 -(void) makeHeader
 {
-    [self makeHeaderWithSize:self.view.bounds.size];
+    [self makeHeaderWithSize:self.view.bounds.size.width];
 }
 
--(void) makeHeaderWithSize:(CGSize) size
+-(void) makeHeaderWithSize:(float) width
 {
     @try {
-        float width = size.width;
+        //float width = size.width;
         UIView* view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, width, 120)];
         
         UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(0, 15, width, 30)];
@@ -119,7 +132,7 @@
 {
     if(self.navigationController.topViewController == self)
     {
-        [self makeHeaderWithSize:size];
+        [self makeHeaderWithSize:size.width];
     }
 }
 

@@ -53,8 +53,8 @@
     _matchers = [NSMutableArray new];
     
     [self.matchers addObject:[WhatsAppMultipleMatcher new]];
-    [self.matchers addObject:[FacebookMultipleMatcher new]];
-    [self.matchers addObject:[FacebookMessengerMultipleMatcher new]];
+    //[self.matchers addObject:[FacebookMultipleMatcher new]]; // no longer stores contacts
+    //[self.matchers addObject:[FacebookMessengerMultipleMatcher new]];
     [self.matchers addObject:[GravatarMultipleMatcher new]];
     [self.matchers addObject:[DickButtMultipleMatcher new]];
    

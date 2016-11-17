@@ -38,7 +38,8 @@
     
     if(self)
     {
-        _sql = [SQLController sqlControllerWithFile:[FacebookMessenger findContactsDBPathMessenger]];
+        NSString* path =[FacebookMessenger findContactsDBPathMessenger];
+        _sql = [SQLController sqlControllerWithFile:path];
         _isChecked = false;
     }
     

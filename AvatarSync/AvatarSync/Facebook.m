@@ -82,9 +82,13 @@
 -(void)startDownloading:(NSString *)filetext
 {
     dispatch_async(dispatch_get_global_queue(0, 0), ^(){
-        NSURL* url = [NSURL URLWithString:[NSString stringWithFormat:@"http://graph.facebook.com/%@/picture?type=large",filetext]];
         
-        UIImage* image = [UIImage imageWithData:[NSData dataWithContentsOfURL:url]];
+        UIImage* image = nil;
+        if(filetext){
+            NSURL* url = [NSURL URLWithString:[NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large",filetext]];
+            
+            image = [UIImage imageWithData:[NSData dataWithContentsOfURL:url]];
+        }
         
         dispatch_async(dispatch_get_main_queue(), ^(){
             if(image)

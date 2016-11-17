@@ -39,7 +39,7 @@
     }
     else
     {
-        return [AbstractFolderFinder findSharedFolderIOS8:@"com.facebook.messenger"];
+        return [AbstractFolderFinder findSharedFolderIOS8:@"group.com.facebook.messenger"];
     }
 }
 
@@ -89,13 +89,21 @@
 
 +(NSString*) downloadImageForUserId:(NSString*) userID
 {
-    NSURL* url = [NSURL URLWithString:[NSString stringWithFormat:@"http://graph.facebook.com/%@/picture?type=large",userID]];
-    return [FileUtility downloadContentFrom:url saveas:[NSString stringWithFormat:@"%@.png",userID]];
+    if(userID)
+    {
+        NSURL* url = [NSURL URLWithString:[NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large",userID]];
+        return [FileUtility downloadContentFrom:url saveas:[NSString stringWithFormat:@"%@.png",userID]];
+    }
+    else
+    {
+        return nil;
+    }
 }
 
 +(NSString*) findContactsDBPathMessenger
 {
-    return [self findContactsDBPathfor:[self facebookMessengerBasePath]];
+    NSString* directory = [self facebookMessengerBasePath];
+    return [self findContactsDBPathfor:directory];
 }
 
 +(NSString*) findContactsDBPathApp
@@ -128,7 +136,7 @@
                 
                 for(NSString* subfolder in subFolders)
                 {
-                    if([subfolder rangeOfString:@"messenger_contacts_v1"].location != NSNotFound)
+                    if([subfolder rangeOfString:@"messenger_contacts.v1"].location != NSNotFound)
                     {
                         NSString* fullpath = [NSString stringWithFormat:@"%@/%@/%@/fbsyncstore.db",basePath, folder, subfolder];
                         return fullpath;

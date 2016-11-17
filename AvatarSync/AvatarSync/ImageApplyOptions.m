@@ -54,8 +54,8 @@
         
         
         _texts = @[
-                   @[NSLocalizedString(@"WhatsApp\n(from local storage)",nil)
-                     ,@"Facebook /\nFacebook Messenger",
+                   @[NSLocalizedString(@"WhatsApp\n(from local storage)",nil),
+                     //,@"Facebook Messenger",
                      @"Gravatar" ],
                    @[@"Facebook",
                      @"Twitter",
@@ -64,7 +64,7 @@
 
         _icons = @[
                    @[[UIImage imageNamed:@"whatsapp.png"],
-                       [UIImage imageNamed:@"fb_mess.png"],
+                      // [UIImage imageNamed:@"fbmessenger.png"],
                        [UIImage imageNamed:@"gravatar.png"]],
                    @[[UIImage imageNamed:@"facebook.png"],
                      [UIImage imageNamed:@"twitter.png"],
@@ -128,10 +128,10 @@
             case 0:
                 [self pushWA:controller];
                 break;
+//            case 1:
+//                [self pushFBMess:controller];
+//                break;
             case 1:
-                [self pushFBMess:controller];
-                break;
-            case 2:
                 [self pushGR:controller];
                 break;
         }
